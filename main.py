@@ -7,6 +7,7 @@ def main():
         file_contents = f.read()
         d_count_letters = {}
         list_of_dictionaries = []
+        file_name = f.name
 
 
 
@@ -23,12 +24,19 @@ def main():
               "letter":d,
               "num":d_count_letters[d]
            })
+
         
-        
-    list_of_dictionaries.sort(reverse=True,key=sort_on)
+        list_of_dictionaries.sort(reverse=True,key=sort_on)
+
+        print(f"--- Begin report of books/{file_name}---")
+        print(f"{len(file_contents.split())} words found in the document")
+        print("  ")
+        print("  ")
     
-    for dictionary in list_of_dictionaries:
-       print(f"The '{dictionary["letter"]}' character was found {dictionary["num"]} times")
+        for dictionary in list_of_dictionaries:
+         print(f"The '{dictionary["letter"]}' character was found {dictionary["num"]} times")
+
+        print('--- End report ---')
 
 main()
 
